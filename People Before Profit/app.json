@@ -15,8 +15,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "658c297f6ee513d1744edbd8260387664e2ac2fc640021d4c8138aee86557a8f"
+      "supportsTablet": true
     }
   }
 }
