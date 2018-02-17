@@ -1,0 +1,3 @@
+exports.createCommunity = (req, res) => {
+
+}
