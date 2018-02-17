@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList, TextInput } from 'react-native';
 import Passport from './Passport';
+import StartSomethingForm from './StartSomethingForm';
 import { getEvents } from './EventData';
 
 export default class StartSomething extends React.Component {
@@ -44,7 +45,7 @@ export default class StartSomething extends React.Component {
       );
     } else {
       return (
-        <Text>Logged in as { this.state.username }</Text>
+        <StartSomethingForm/>
       );
     }
   }
