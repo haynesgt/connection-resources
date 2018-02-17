@@ -2,7 +2,7 @@
   "expo": {
     "name": "People Before Profit",
     "description": "This project is really great.",
-    "slug": "People Before Profit",
+    "slug": "people-before-profit",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
@@ -15,7 +15,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "658c297f6ee513d1744edbd8260387664e2ac2fc640021d4c8138aee86557a8f"
     }
   }
 }

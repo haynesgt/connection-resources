@@ -1,15 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Landing from './Landing';
+import Event from './Event';
+import StartSomething from './StartSomething';
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
+export default StackNavigator({
+  Landing: { screen: Landing },
+  Event: { screen: Event },
+  StartSomething: { screen: StartSomething },
+});
+
+/*
+class App extends React.Component {
   render() {
     return (
-      <Landing>
-      </Landing>
-    );
+      <Landing />
+    )
   }
 }
+*/
 
 const styles = StyleSheet.create({
   container: {

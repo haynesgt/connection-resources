@@ -1,35 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-let events = [
-  {
-    name: 'Native Environmental Community Event',
-    description: 'A good event',
-    start: new Date('Feburary 20, 2018 18:00'),
-    end: new Date('February 20, 2018 20:00'),
-    id: 1
-  }, {
-    name: 'Other Event',
-    description: 'A nice event',
-    start: new Date('Feburary 21, 2018 18:00'),
-    end: new Date('February 21, 2018 20:00'),
-    id: 2
-  }
-];
+import { StyleSheet, Text, View, Button, FlatList} from 'react-native';
+import { getEvents } from './EventData';
 
 export default class Landing extends React.Component {
+  static navigationOptions = {
+    title: 'Meetings',
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-      {
-      (
-        events.map(
-          (eventx) => (
-            <Text key={eventx.id}>{eventx.name}</Text>
-          )
-        )
-      )
-      }
+        <FlatList
+          data={getEvents()}
+          renderItem={({item}) => (
+            <View style={styles.item}>
+              <View>
+                <Text style={styles.itemText}>{item.name}</Text>
+                <Text style={styles.itemDate}>{item.start.toLocaleString()} -</Text>
+                <Text style={styles.itemDate}>{item.end.toLocaleString()}</Text>
+              </View>
+              <View style={styles.itemButtonView}>
+                <Button
+                  style={styles.itemButton}
+                  color="#fff"
+                  title="Go"
+                  onPress={() => navigate('Event', {key: item.key})}
+                />
+              </View>
+            </View>
+          )}
+        />
+        <View style={styles.startButtonView}>
+          <Button
+            title="Start Something"
+            color="white"
+            onPress={() => navigate('StartSomething')}
+          />
+        </View>
       </View>
     );
   }
@@ -39,7 +46,33 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 30,
   },
+  item: {
+    padding: 10,
+    margin: 5,
+    backgroundColor: '#eee',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 90
+  },
+  itemText: {
+    fontSize: 18,
+  },
+  itemButtonView: {
+    marginTop: 10,
+    paddingTop: 5,
+    backgroundColor: "#88f",
+    borderRadius: 8,
+    width: 48,
+    height: 48
+  },
+  itemButton: {
+    color: "#fff"
+  },
+  startButtonView: {
+    backgroundColor: "#88f",
+    padding: 20
+  }
 });
