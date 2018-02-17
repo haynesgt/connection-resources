@@ -10,3 +10,7 @@ const meetingSchema = new mongoose.Schema({
     sponsors: [{type: Schema.Types.ObjectId, ref: 'User'}],
 
 })
+
+const Meeting = mongoose.model('Meeting', meetingSchema)
+
+module.exports = Meeting

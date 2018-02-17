@@ -35,6 +35,7 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const groupController = require('./controllers/community');
+const meetingController = require('./controllers/meeting');
 
 /**
  * API keys and Passport configuration.
@@ -144,6 +145,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
  */
 
  app.post('/community/create', groupController.createCommunity)
+ app.post('/meeting/create', meetingController.createMeeting)
 /**
  * API examples routes.
  */
