@@ -1,0 +1,1 @@
+exports.createCommunity = (req, res)
