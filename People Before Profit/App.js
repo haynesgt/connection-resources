@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Landing from './Landing';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>The app is working!</Text>
-      </View>
+      <Landing>
+      </Landing>
     );
   }
 }
