@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+// const User = require('./User')
 
 
 const meetingSchema = new mongoose.Schema({
@@ -10,3 +11,7 @@ const meetingSchema = new mongoose.Schema({
     sponsors: [{type: Schema.Types.ObjectId, ref: 'User'}],
 
 })
+
+const Group = mongoose.model('Group', meetingSchema)
+
+module.exports = Group
