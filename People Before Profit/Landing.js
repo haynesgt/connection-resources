@@ -32,7 +32,7 @@ export default class Landing extends React.Component {
         />
         <View style={styles.startButtonView}>
           <Button
-            title="Start Something"
+            title="Start Something New"
             color="white"
             onPress={() => navigate('StartSomething')}
           />
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    marginTop: 30,
+    marginTop: 0,
   },
   item: {
     padding: 10,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   itemButtonView: {
     marginTop: 10,
     paddingTop: 5,
-    backgroundColor: "#88f",
+    backgroundColor: "#08f",
     borderRadius: 8,
     width: 48,
     height: 48
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     color: "#fff"
   },
   startButtonView: {
-    backgroundColor: "#88f",
+    backgroundColor: "#08f",
     padding: 20
   }
 });
