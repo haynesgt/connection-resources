@@ -6,6 +6,7 @@ import {
   TextInput,
   View,
   Button,
+  Picker,
   DatePickerIOS
 } from 'react-native';
 import Passport from './Passport';
@@ -26,6 +27,11 @@ export default class StartSomethingForm extends Component {
     return (
       <View style={styles.outerContainer}>
       <ScrollView style={styles.container}>
+        <Text style={styles.label}>Group</Text>
+        <Picker style={styles.inputGroup}>
+          <Picker.Item label="x"/>
+          <Picker.Item label="y"/>
+        </Picker>
         <Text style={styles.label}>Event Name</Text>
         <TextInput
           style={styles.inputText}
@@ -82,6 +88,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     margin: 5,
     padding: 5,
+    backgroundColor: '#fff',
+    borderColor: '#bbb',
+    borderWidth: 1,
+    borderStyle: 'solid'
+  },
+  inputGroup: {
+    margin: 5,
     backgroundColor: '#fff',
     borderColor: '#bbb',
     borderWidth: 1,
