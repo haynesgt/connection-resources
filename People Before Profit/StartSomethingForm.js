@@ -58,7 +58,7 @@ export default class StartSomethingForm extends Component {
           style={styles.button}
           color='#fff'
           title="Submit"
-          onPress={() => _submit()}
+          onPress={() => this._submit()}
         />
       </View>
       </View>

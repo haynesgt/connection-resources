@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 10,
-    margin: 5,
+    marginTop: 5,
     backgroundColor: '#eee',
     flex: 1,
     flexDirection: 'row',
