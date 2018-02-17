@@ -146,7 +146,16 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
  app.post('/community/create', groupController.createCommunity)
  app.post('/meeting/create', meetingController.createMeeting)
+
 /**
+* Meetings
+*/
+
+app.get('/meetings', meetingController.list_meetings)
+app.post('/users/attending_meetings', userController.show_attending_meetings)
+
+/**
+ * 
  * API examples routes.
  */
 app.get('/api', apiController.getApi);

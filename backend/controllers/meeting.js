@@ -35,7 +35,7 @@ exports.createMeeting = (req, res) => {
 
                 if (err) {
                     console.log(err)
-                    return res.status(500).send("Community Creation Failure - Internal Server Error");
+                    return res.status(500).send("Meeting Creation Failure - Internal Server Error");
                 }
                 res.status(200).send(meeting)
 
@@ -46,4 +46,8 @@ exports.createMeeting = (req, res) => {
 
 
     )
+}
+
+exports.list_meetings = (req, res) => {
+    return Promise.all( [Meeting.find({})]).then(meetings => res.status(200).send(meetings))
 }

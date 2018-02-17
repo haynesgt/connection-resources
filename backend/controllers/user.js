@@ -47,6 +47,19 @@ exports.postLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+exports.show_attending_meetings = (req, res) => {
+  // console.log(req.body.email)
+  return Promise.all(
+    User.findOne({'email': req.body.email})
+  ).then((user) => {
+    meetings = user.getAttendingMeetings()
+    res.status(200).send(meetings)
+    
+  }
+)
+
+}
+
 /**
  * GET /logout
  * Log out.
