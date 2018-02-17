@@ -1,1 +1,3 @@
-exports.createCommunity = (req, res)
+exports.createCommunity = (req, res) => {
+
+}
