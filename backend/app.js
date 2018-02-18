@@ -145,13 +145,14 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
  */
 
  app.post('/community/create', groupController.createCommunity)
- app.post('/meeting/create', meetingController.createMeeting)
+ app.get('/communities', groupController.list_communities)
 
 /**
 * Meetings
 */
 
 app.get('/meetings', meetingController.list_meetings)
+app.post('/meeting/create', meetingController.createMeeting)
 app.post('/users/attending_meetings', userController.show_attending_meetings)
 
 /**

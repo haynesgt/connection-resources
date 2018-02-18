@@ -41,3 +41,7 @@ exports.createCommunity = (req, res) => {
             }
             )
 }
+
+exports.list_communities = (req, res) => {
+    return Promise.all( [Group.find({})]).then(group => res.status(200).send(group))
+}
