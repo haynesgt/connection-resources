@@ -28,8 +28,10 @@ exports.createMeeting = (req, res) => {
             endTime: req.body.endDate, 
             site: req.body.site, // Consider using GeoJSON in future
             description: req.body.description,
+            name: req.body.name,
             attendees: [attendees.map(x => x._id)],
             sponsors: [sponsors.map(x => x._id)],
+            dateAdded: new Date() 
 
         }, (err, meeting) => {
 
@@ -49,5 +51,5 @@ exports.createMeeting = (req, res) => {
 }
 
 exports.list_meetings = (req, res) => {
-    return Promise.all( [Meeting.find({}).sort({datefield: -1})]).then(meetings => res.status(200).send(meetings))
+    return Promise.all( [Meeting.find({}).sort({dateAdded: -1})]).then(meetings => res.status(200).send(meetings))
 }

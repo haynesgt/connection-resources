@@ -6,8 +6,10 @@ const meetingSchema = new mongoose.Schema({
     endTime: Date, 
     site: String, // Consider using GeoJSON in future
     description: String,
+    name: String,
     attendees: [{type: Schema.Types.ObjectId, ref: 'User'}],
     sponsors: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    dateAdded: Date
 
 })
 
