@@ -8,6 +8,7 @@ const meetingSchema = new mongoose.Schema({
     description: String,
     attendees: [{type: Schema.Types.ObjectId, ref: 'User'}],
     sponsors: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    dateAdded: Date
 
 })
 
