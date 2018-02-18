@@ -18,6 +18,7 @@ export default class StartSomethingForm extends Component {
     super(props);
     this.state = {
       communities: [],
+      chosenCommunity: null,
       eventName: "",
       eventDescription: "",
       eventStart: new Date(),
@@ -65,13 +66,17 @@ export default class StartSomethingForm extends Component {
       </View>
       <ScrollView style={styles.container}>
         <Text style={styles.label}>Group</Text>
-        <Picker style={styles.inputGroup}>
+        <Picker
+          style={styles.inputGroup}
+          selectedValue={this.state.chosenCommunity}
+          onValueChange={(chosenCommunity) => {this.setState({chosenCommunity}); }}
+        >
           {
             this.state.communities.filter(
               (item) => (item.name)
             ).map(
               (item, i) => (
-                <Picker.Item label={item.name} key={i} />
+                <Picker.Item label={item.name} key={i} value={item.name} />
               )
             )
           }
