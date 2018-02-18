@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 // const User = require('./User')
 
 
-const meetingSchema = new mongoose.Schema({
+const groupSchema = new mongoose.Schema({
     name: String,
     description: String,
     members: [{type: Schema.Types.ObjectId, ref: 'User'}],
@@ -12,6 +12,6 @@ const meetingSchema = new mongoose.Schema({
 
 })
 
-const Group = mongoose.model('Group', meetingSchema)
+const Group = mongoose.model('Group', groupSchema)
 
 module.exports = Group

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const Meeting = require('./Meeting')
 
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
@@ -25,6 +26,17 @@ const userSchema = new mongoose.Schema({
     picture: String
   }
 }, { timestamps: true });
+
+
+userSchema.methods.getAttendingMeetings = () => {
+  Meeting.find({attendees: $in[this._id] })
+  
+}
+
+userSchema.methods.getSponsoringMeetings = () => {
+  Meeting.find({})
+  
+}
 
 /**
  * Password hash middleware.
