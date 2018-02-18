@@ -49,5 +49,5 @@ exports.createMeeting = (req, res) => {
 }
 
 exports.list_meetings = (req, res) => {
-    return Promise.all( [Meeting.find({})]).then(meetings => res.status(200).send(meetings))
+    return Promise.all( [Meeting.find({}).sort({datefield: -1})]).then(meetings => res.status(200).send(meetings))
 }
