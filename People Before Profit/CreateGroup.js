@@ -29,6 +29,9 @@ export default class CreateGroup extends Component {
       [ Passport.username ]
     ).then(
       () => {
+        if (this.props.navigation.state.params.callback()) {
+          this.props.navigation.state.params.callback();
+        }
         this.props.navigation.goBack();
       }
     );

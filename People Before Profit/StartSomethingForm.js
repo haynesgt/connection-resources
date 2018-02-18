@@ -29,6 +29,13 @@ export default class StartSomethingForm extends Component {
       }
     );
   }
+  refreshGroups() {
+    getGroups().then(
+      (communities) => {
+        this.setState({communities});
+      }
+    );
+  }
   _submit() {
     createEvent(
       this.state.eventName,
@@ -74,7 +81,7 @@ export default class StartSomethingForm extends Component {
             style={styles.button}
             color='#fff'
             title="Create New Group"
-            onPress={() => navigate('CreateGroup')}
+            onPress={() => navigate('CreateGroup', { callback: () => this.refreshGroups()})}
           />
         </View>
         <Text style={styles.label}>Event Name</Text>
