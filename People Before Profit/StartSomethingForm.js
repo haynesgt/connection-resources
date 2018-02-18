@@ -10,28 +10,73 @@ import {
   DatePickerIOS
 } from 'react-native';
 import Passport from './Passport';
+import { getGroups } from './GroupData';
+import { createEvent } from './EventData';
 
 export default class StartSomethingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      communities: [],
       eventName: "",
       eventDescription: "",
       eventStart: new Date(),
       eventEnd: new Date()
     };
+    getGroups().then(
+      (communities) => {
+        this.setState({communities});
+      }
+    );
   }
   _submit() {
+    createEvent(
+      this.state.eventName,
+      this.state.eventDescription,
+      this.state.eventStart,
+      this.state.eventEnd,
+      "",
+      [ Passport.username ],
+      [ Passport.username ]
+    ).then(
+      () => {
+        this.props.navigation.goBack();
+      }
+    );
   }
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.outerContainer}>
+      <View style={styles.buttonView}>
+        <Button
+          style={styles.button}
+          color='#fff'
+          title="Create Event"
+          onPress={() => this._submit()}
+        />
+      </View>
       <ScrollView style={styles.container}>
         <Text style={styles.label}>Group</Text>
         <Picker style={styles.inputGroup}>
-          <Picker.Item label="x"/>
-          <Picker.Item label="y"/>
+          {
+            this.state.communities.filter(
+              (item) => (item.name)
+            ).map(
+              (item, i) => (
+                <Picker.Item label={item.name} key={i} />
+              )
+            )
+          }
         </Picker>
+        <View style={styles.buttonView2}>
+          <Button
+            style={styles.button}
+            color='#fff'
+            title="Create New Group"
+            onPress={() => navigate('CreateGroup')}
+          />
+        </View>
         <Text style={styles.label}>Event Name</Text>
         <TextInput
           style={styles.inputText}
@@ -59,14 +104,6 @@ export default class StartSomethingForm extends Component {
           onDateChange={(eventEnd) => this.setState({eventEnd})}
         />
       </ScrollView>
-      <View style={styles.buttonView}>
-        <Button
-          style={styles.button}
-          color='#fff'
-          title="Submit"
-          onPress={() => this._submit()}
-        />
-      </View>
       </View>
     )
   }
@@ -109,6 +146,11 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     backgroundColor: '#08f',
+    margin: 5,
+    borderRadius: 5,
+  },
+  buttonView2: {
+    backgroundColor: '#8c4',
     margin: 5,
     borderRadius: 5,
   },

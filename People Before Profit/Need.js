@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, FlatList} from 'react-native';
-import { getEvents } from './EventData';
+import { StyleSheet, TextInput, Text, View, Button, FlatList} from 'react-native';
 
-export default class Event extends React.Component {
+export default class Need extends React.Component {
   static navigationOptions = {
-    title: 'Event',
+    title: 'Viewing Need',
   };
   onJoin() {
   }
@@ -14,11 +13,22 @@ export default class Event extends React.Component {
       <View style={styles.container}>
         <Text style={styles.name}>{ myItem.name }</Text>
         <Text style={styles.description}>{ myItem.description }</Text>
+        <Text>How can you help?</Text>
+        <TextInput
+          style={{
+              backgroundColor: '#fff',
+              fontSize: 16,
+              borderWidth: 1,
+              borderColor: '#ccc',
+              borderStyle: 'solid'
+            }}
+            height={50}
+        />
         <View style={styles.buttonView}>
           <Button
             style={styles.button}
             color='#fff'
-            title="Join"
+            title="Offer Help"
             onPress={() => this.onJoin()}
           />
         </View>
@@ -48,3 +58,4 @@ const styles = StyleSheet.create({
     color: '#fff',
   }
 });
+

@@ -1,20 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList} from 'react-native';
-import { getEvents } from './EventData';
+import { getNeeds } from './NeedData';
 
-export default class Landing extends React.Component {
+export default class Needs extends React.Component {
   static navigationOptions = {
-    title: 'Meetings',
+    title: 'Needs',
   };
   constructor(props) {
     super(props);
     this.state = {
-      events: [],
+      needs: null,
       refreshing:true 
     };
-    getEvents().then(
-      (events) => {
-        this.setState({events});
+    getNeeds().then(
+      (needs) => {
+        this.setState({needs});
         this.setState({refreshing: false})
       }
     )
@@ -22,8 +22,8 @@ export default class Landing extends React.Component {
   onRefresh() {
     this.setState({refreshing: true});
     getEvents().then(
-      (events) => {
-        this.setState({events});
+      (needs) => {
+        this.setState({needs});
         this.setState({refreshing: false});
       }
     )
@@ -33,48 +33,26 @@ export default class Landing extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={this.state.events.map((item, i) => Object.assign({key: i}, item))}
+          data={this.state.needs}
           refreshing={this.state.refreshing}
           onRefresh={() => this.onRefresh()}
           renderItem={({item}) => (
             <View style={styles.item}>
               <View>
                 <Text style={styles.itemText}>{item.name}</Text>
-                <Text style={styles.itemDate}>{item.startTime ? item.startTime.toLocaleString() : ''} -</Text>
-                <Text style={styles.itemDate}>{item.endTime ? item.endTime.toLocaleString() : ''}</Text>
+                <Text style={styles.itemDate}>{item.community.name}</Text>
               </View>
               <View style={styles.itemButtonView}>
                 <Button
                   style={styles.itemButton}
                   color="#fff"
-                  title="Go"
-                  onPress={() => navigate('Event', {item: item})}
+                  title="Help"
+                  onPress={() => navigate('Need', {item: item})}
                 />
               </View>
             </View>
           )}
         />
-        <View style={styles.startButtonView}>
-          <Button
-            title="Start Something New"
-            color="white"
-            onPress={() => navigate('StartSomething')}
-          />
-        </View>
-        <View style={styles.startButtonView}>
-          <Button
-            title="Help Communities in Need"
-            color="white"
-            onPress={() => navigate('Needs')}
-          />
-        </View>
-        <View style={styles.startButtonView}>
-          <Button
-            title="Manage Your Communities"
-            color="white"
-            onPress={() => navigate('Manage')}
-          />
-        </View>
       </View>
     );
   }
@@ -103,7 +81,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     backgroundColor: "#08f",
     borderRadius: 8,
-    width: 48,
+    width: 64,
     height: 48
   },
   itemButton: {
@@ -115,3 +93,4 @@ const styles = StyleSheet.create({
     marginTop: 5
   }
 });
+

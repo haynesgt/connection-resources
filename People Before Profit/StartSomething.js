@@ -45,7 +45,7 @@ export default class StartSomething extends React.Component {
       );
     } else {
       return (
-        <StartSomethingForm/>
+        <StartSomethingForm navigation={this.props.navigation}/>
       );
     }
   }
