@@ -75,6 +75,13 @@ export default class Landing extends React.Component {
             onPress={() => navigate('Manage')}
           />
         </View>
+        <View style={styles.startButtonView}>
+          <Button
+            title="Search"
+            color="white"
+            onPress={() => navigate('Search')}
+          />
+        </View>
       </View>
     );
   }
@@ -111,7 +118,7 @@ const styles = StyleSheet.create({
   },
   startButtonView: {
     backgroundColor: "#08f",
-    padding: 20,
+    padding: 10,
     marginTop: 5
   }
 });

@@ -5,6 +5,7 @@ import Event from './Event';
 import Login from './Login';
 import Needs from './Needs';
 import Need from './Need';
+import Search from './Search';
 import CreateGroup from './CreateGroup';
 import StartSomething from './StartSomething';
 import StartSomethingForm from './StartSomethingForm';
@@ -18,7 +19,8 @@ let Nav = StackNavigator({
   CreateGroup: { screen: CreateGroup },
   Needs: { screen: Needs },
   Need: { screen: Need },
-  Manage: { screen: Needs }
+  Manage: { screen: Needs },
+  Search: { screen: Search }
 });
 
 export default class App extends React.Component {
