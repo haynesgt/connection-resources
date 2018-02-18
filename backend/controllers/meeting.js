@@ -31,6 +31,7 @@ exports.createMeeting = (req, res) => {
             name: req.body.name,
             attendees: [attendees.map(x => x._id)],
             sponsors: [sponsors.map(x => x._id)],
+            dateAdded: new Date() 
 
         }, (err, meeting) => {
 
