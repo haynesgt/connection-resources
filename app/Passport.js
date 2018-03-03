@@ -1,5 +1,5 @@
 export default  {
-  server: 'http://159.65.66.190:8080',
+  server: 'http://localhost:9090',
   username: 'myemail@mail.com',
   password: null,
 };
