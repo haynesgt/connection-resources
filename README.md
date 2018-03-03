@@ -4,20 +4,6 @@ This app was build at the "People Before Profit" hackethon hosted by Vancity.
 
 https://www.vancity.com/AboutVancity/Events/GABVHackathon/
 
-# Screenshots
-
-
-![](screenshots/IMG_0277.PNG)
-![](screenshots/IMG_0278.PNG)
-![](screenshots/IMG_0279.PNG)
-
-![](screenshots/IMG_0280.PNG)
-![](screenshots/IMG_0281.PNG)
-![](screenshots/IMG_0282.PNG)
-
-![](screenshots/IMG_0283.PNG)
-![](screenshots/IMG_5189.jpg)
-
 # Installation
 
 Preinstall
@@ -47,7 +33,18 @@ npm install
 npm start
 ```
 
- 
+# Screenshots
+
+
+![](screenshots/IMG_0277.PNG)
+![](screenshots/IMG_0278.PNG)
+![](screenshots/IMG_0279.PNG)
+
+![](screenshots/IMG_0280.PNG)
+![](screenshots/IMG_0281.PNG)
+![](screenshots/IMG_0282.PNG)
+
+![](screenshots/IMG_0283.PNG)
 
 # Attributions
 Landing Page Icon CCBY Noun Project
